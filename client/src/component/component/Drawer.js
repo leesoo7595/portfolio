@@ -1,5 +1,17 @@
 import React, {useState} from 'react';
-import {makeStyles, Button, Drawer, List, ListItem, ListItemText, Divider, ListItemIcon} from '@material-ui/core';
+import {Link} from "react-router-dom";
+import {
+    makeStyles,
+    Button,
+    Drawer,
+    List,
+    ListItem,
+    ListItemText,
+    Divider,
+    IconButton
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+
 // import {} from '@material-ui/icons';
 
 const useStyles = makeStyles({
@@ -8,6 +20,13 @@ const useStyles = makeStyles({
     },
     fullList: {
         width: 'auto',
+    },
+    menuBtn: {
+        color: 'white',
+    },
+    link: {
+        color: 'white',
+        textDecoration: 'none',
     },
 });
 
@@ -33,8 +52,8 @@ export const Menu = () => {
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                {['Blog', 'Write'].map((text, index) => (
-                    <ListItem button key={text}>
+                {['list', 'post'].map((text, index) => (
+                    <ListItem button key={text} component={Link} to={`/${text}`}>
                         {/*<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
                         <ListItemText primary={text} />
                     </ListItem>
@@ -43,7 +62,7 @@ export const Menu = () => {
             <Divider />
             <List>
                 {['Profile', 'Portfolio'].map((text, index) => (
-                    <ListItem button key={text}>
+                    <ListItem button key={text} component={Link} to={`/${text}`}>
                         {/*<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
                         <ListItemText primary={text} />
                     </ListItem>
@@ -54,7 +73,11 @@ export const Menu = () => {
 
     return (
         <div>
-            <Button onClick={toggleDrawer('left', true)}>MENU</Button>
+            <Button onClick={toggleDrawer('left', true)}>
+                <IconButton className={classes.menuBtn} edge="start" aria-label="Menu">
+                    <MenuIcon />
+                </IconButton>
+            </Button>
             <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
                 {sideList('left')}
             </Drawer>
