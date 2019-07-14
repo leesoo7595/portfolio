@@ -51,6 +51,10 @@ export const Menu = () => {
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
+            <ListItem button key={'blog'} component={Link} to={'/'}>
+                <ListItemText primary={'Blog'}/>
+            </ListItem>
+            <Divider />
             <List>
                 {['list', 'post'].map((text, index) => (
                     <ListItem button key={text} component={Link} to={`/${text}`}>

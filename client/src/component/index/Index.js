@@ -28,6 +28,7 @@ export const Index = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
+            이곳은 main 입니다.
         </div>
     )
 };

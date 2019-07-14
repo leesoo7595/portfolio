@@ -226,3 +226,6 @@ modules.xml
 # client
 client/build
 client/node_modules
+
+# credentials
+credentials/*
