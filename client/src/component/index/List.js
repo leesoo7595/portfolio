@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {makeStyles, Button, Toolbar, Typography, AppBar} from "@material-ui/core/index";
 import {Menu} from "../component/Drawer";
+import {MediaCard} from "../component/PostCard";
 
 const useStyles = makeStyles({
     btn: {
@@ -27,8 +28,10 @@ export const List = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            목록 보기
             <Button className={classes.btn} variant={'contained'} color={'primary'} component={Link} to={'/post'}>post</Button>
+            목록 보기
+            {}
+            <MediaCard />
         </div>
     )
 };
