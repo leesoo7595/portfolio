@@ -52,10 +52,6 @@ export const Post = () => {
             .catch(e => console.log(e));
     };
 
-    const redirectPage = () => {
-        return <Redirect to={'/list'} />
-    };
-
     return (
         (state.submit)
         ? <Redirect to={'/list'} />
