@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {AppBar, Toolbar, Typography, IconButton, makeStyles} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, makeStyles} from '@material-ui/core';
 
 import {Menu} from '../component/Drawer';
 
@@ -21,10 +21,10 @@ export const Index = () => {
     return (
         <div>
             <AppBar position="static">
-                <Toolbar variant="dense">
+                <Toolbar variant="dense" className={classes.link} component={Link} to={'/'}>
                     <Menu />
                     <Typography variant="h6">
-                        <Link className={classes.link} to={'/'}>Blog</Link>
+                        Blog
                     </Typography>
                 </Toolbar>
             </AppBar>

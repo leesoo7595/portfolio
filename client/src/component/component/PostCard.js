@@ -4,7 +4,7 @@ import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typo
 
 const useStyles = makeStyles({
     card: {
-        width: '90%',
+        width: '95%',
         margin: '20px'
     },
     media: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     },
 });
 
-export const MediaCard = (props) => {
+export const PostCard = (props) => {
     const {title, image, description, createdAt} = props;
     const classes = useStyles();
 

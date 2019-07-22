@@ -41,7 +41,7 @@ export const Menu = () => {
             return;
         }
 
-        setState({ ...state, [side]: open });
+        setState({...state, [side]: open});
     };
 
     const sideList = side => (
@@ -54,21 +54,21 @@ export const Menu = () => {
             <ListItem button key={'blog'} component={Link} to={'/'}>
                 <ListItemText primary={'Blog'}/>
             </ListItem>
-            <Divider />
+            <Divider/>
             <List>
                 {['list', 'post'].map((text, index) => (
                     <ListItem button key={text} component={Link} to={`/${text}`}>
                         {/*<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
-                        <ListItemText primary={text} />
+                        <ListItemText primary={text}/>
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            <Divider/>
             <List>
                 {['Profile', 'Portfolio'].map((text, index) => (
                     <ListItem button key={text} component={Link} to={`/${text}`}>
                         {/*<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
-                        <ListItemText primary={text} />
+                        <ListItemText primary={text}/>
                     </ListItem>
                 ))}
             </List>
@@ -77,11 +77,9 @@ export const Menu = () => {
 
     return (
         <div>
-            <Button onClick={toggleDrawer('left', true)}>
-                <IconButton className={classes.menuBtn} edge="start" aria-label="Menu">
-                    <MenuIcon />
-                </IconButton>
-            </Button>
+            <IconButton onClick={toggleDrawer('left', true)} className={classes.menuBtn} edge="start" aria-label="Menu">
+                <MenuIcon/>
+            </IconButton>
             <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
                 {sideList('left')}
             </Drawer>

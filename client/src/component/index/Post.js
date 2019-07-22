@@ -38,7 +38,7 @@ export const Post = () => {
         const {title, description} = state;
         console.log("title: ", title);
         console.log("description: ", description);
-        fetch('/post', {
+        fetch('/api', {
             method: 'POST',
             body: JSON.stringify({title, description}),
             headers: {"Content-Type": "application/json"}
@@ -57,10 +57,10 @@ export const Post = () => {
         ? <Redirect to={'/list'} />
         : <div>
             <AppBar position="static">
-                <Toolbar variant="dense">
+                <Toolbar variant="dense" className={classes.link} component={Link} to={'/post'}>
                     <Menu />
                     <Typography variant="h6">
-                        <Link className={classes.link} to={'/post'}>Post</Link>
+                        Post
                     </Typography>
                 </Toolbar>
             </AppBar>
