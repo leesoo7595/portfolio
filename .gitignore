@@ -229,3 +229,9 @@ client/node_modules
 
 # credentials
 credentials/*
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.ebignore

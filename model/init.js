@@ -3,13 +3,22 @@ const credentials = require('../credentials/credentials');
 const {Post} = require('./Post');
 
 let initiated = false;
-const sequelize = new Sequelize(
-    credentials["database"]["name"],
-    credentials["database"]["id"],
-    credentials["database"]["password"], {
-        host: credentials["database"]["host"],
-        dialect: credentials["database"]["dialect"]
-    });
+const sequelize = process.env.NODE_ENV === "PRODUCTION"
+    ? new Sequelize(
+        process.env.RDS_DB_NAME,
+        process.env.RDS_USERNAME,
+        process.env.RDS_PASSWORD, {
+            host: process.env.RDS_HOSTNAME,
+            dialect: credentials["database"]["dialect"]
+        }
+    )
+    : new Sequelize(
+        credentials["database"]["name"],
+        credentials["database"]["id"],
+        credentials["database"]["password"], {
+            host: credentials["database"]["host"],
+            dialect: credentials["database"]["dialect"]
+        });
 
 function init() {
     Post.init(sequelize);
